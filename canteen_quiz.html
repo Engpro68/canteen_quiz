@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canteen Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #2E8B57;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        .correct {
+            color: green;
+        }
+        .wrong {
+            color: red;
+        }
+        .score {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+    <script>
+        function checkAnswers() {
+            var correctAnswers = ["b", "a", "d", "c", "d", "b", "a"];
+            var score = 0;
+            for (var i = 0; i < correctAnswers.length; i++) {
+                var selectedOption = document.querySelector('input[name="q' + (i + 1) + '"]:checked');
+                var result = document.getElementById("result" + (i + 1));
+                if (selectedOption && selectedOption.value === correctAnswers[i]) {
+                    result.textContent = "Correct! The correct answer is " + correctAnswers[i].toUpperCase();
+                    result.className = "correct";
+                    score++;
+                } else {
+                    result.textContent = "Wrong! The correct answer is " + correctAnswers[i].toUpperCase();
+                    result.className = "wrong";
+                }
+            }
+            document.getElementById("score").textContent = "Your score: " + score + "/" + correctAnswers.length;
+        }
+    </script>
+</head>
+<body>
+    <h2>Canteen Quiz</h2>
+    
+    <div class="question">
+        <p>1. What types of meat can students choose for noodle soup?</p>
+        <div class="options">
+            <label><input type="radio" name="q1" value="a"> Chicken and fish</label><br>
+            <label><input type="radio" name="q1" value="b"> Chicken, pork, and beef</label><br>
+            <label><input type="radio" name="q1" value="c"> Pork and lamb</label><br>
+            <label><input type="radio" name="q1" value="d"> Beef and turkey</label>
+        </div>
+        <p id="result1"></p>
+    </div>
+
+    <div class="question">
+        <p>2. Which of the following is NOT mentioned as a drink in the canteen?</p>
+        <div class="options">
+            <label><input type="radio" name="q2" value="a"> Coffee</label><br>
+            <label><input type="radio" name="q2" value="b"> Water</label><br>
+            <label><input type="radio" name="q2" value="c"> Soft drinks</label><br>
+            <label><input type="radio" name="q2" value="d"> Juice</label>
+        </div>
+        <p id="result2"></p>
+    </div>
+
+    <div class="question">
+        <p>3. What can students order at the "food made to order" stall?</p>
+        <div class="options">
+            <label><input type="radio" name="q3" value="a"> Pizza and hamburgers</label><br>
+            <label><input type="radio" name="q3" value="b"> Pasta and chicken wings</label><br>
+            <label><input type="radio" name="q3" value="c"> Salads and sandwiches</label><br>
+            <label><input type="radio" name="q3" value="d"> Fried rice and omelets</label>
+        </div>
+        <p id="result3"></p>
+    </div>
+
+    <div class="question">
+        <p>4. What does the text suggest about the school canteen atmosphere?</p>
+        <div class="options">
+            <label><input type="radio" name="q4" value="a"> It is quiet and serious</label><br>
+            <label><input type="radio" name="q4" value="b"> Students do not enjoy eating there</label><br>
+            <label><input type="radio" name="q4" value="c"> It is full of laughter and happy conversations</label><br>
+            <label><input type="radio" name="q4" value="d"> The canteen is always empty</label>
+        </div>
+        <p id="result4"></p>
+    </div>
+
+    <div class="question">
+        <p>5. What healthy option is available for students?</p>
+        <div class="options">
+            <label><input type="radio" name="q5" value="a"> Salad bar</label><br>
+            <label><input type="radio" name="q5" value="b"> Protein shakes</label><br>
+            <label><input type="radio" name="q5" value="c"> Vegetable smoothies</label><br>
+            <label><input type="radio" name="q5" value="d"> Fresh fruit</label>
+        </div>
+        <p id="result5"></p>
+    </div>
+
+    <div class="question">
+        <p>6. Which dessert is mentioned in the text?</p>
+        <div class="options">
+            <label><input type="radio" name="q6" value="a"> Chocolate cake</label><br>
+            <label><input type="radio" name="q6" value="b"> Sticky rice with mango</label><br>
+            <label><input type="radio" name="q6" value="c"> Apple pie</label><br>
+            <label><input type="radio" name="q6" value="d"> Fruit pudding</label>
+        </div>
+        <p id="result6"></p>
+    </div>
+
+    <div class="question">
+        <p>7. What can students find at the curry stall?</p>
+        <div class="options">
+            <label><input type="radio" name="q7" value="a"> Curry with fried chicken and stir-fried vegetables</label><br>
+            <label><input type="radio" name="q7" value="b"> Only spicy curry</label><br>
+            <label><input type="radio" name="q7" value="c"> Curry without meat</label><br>
+            <label><input type="radio" name="q7" value="d"> Cold curry dishes</label>
+        </div>
+        <p id="result7"></p>
+    </div>
+
+    <button onclick="checkAnswers()">Check Answers</button>
+    <p id="score" class="score"></p>
+</body>
+</html>
